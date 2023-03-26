@@ -1,0 +1,364 @@
+/* USER VARIABLES SECTION */
+
+:root {
+	--accent: orange;
+	--text: rgb(255, 255, 255);
+	--regular-text: 16px;
+	--lineheight: 1.65;
+	--userfont: roboto-st, sans-serif;
+	--systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+	--padding: 120px;
+	--transition: ease-out;
+	--shadow-color: #8800ff;
+  	--shadow-color-light: rgb(255, 255, 255);
+
+}
+
+/* BOOTSTRAP SETTINGS SECTION */
+
+/* gutter 20px (10px + 10px). Comment this code for default gutter start at 1.5rem (24px) wide. */
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl { --bs-gutter-x: .625rem; }
+.row, .row > * { --bs-gutter-x: 1.25rem; }
+
+/* FONTS LOAD SECTION */
+
+@font-face { src: url("../fonts/roboto-regular-webfont.woff2") format("woff2"); font-family: "roboto-st"; font-weight: 400; font-style: normal; }
+@font-face { src: url("../fonts/roboto-italic-webfont.woff2") format("woff2"); font-family: "roboto-st"; font-weight: 400; font-style: italic; }
+@font-face { src: url("../fonts/roboto-bold-webfont.woff2") format("woff2"); font-family: "roboto-st"; font-weight: 700; font-style: normal; }
+@font-face { src: url("../fonts/roboto-bolditalic-webfont.woff2") format("woff2"); font-family: "roboto-st"; font-weight: 700; font-style: italic; }
+@font-face { src: url("../fonts/Montserrat-regular-webfont.woff2") format("woff2"); font-family: "Montserrat-regular"; font-weight: 700; font-style: italic; }
+
+
+/* GENERAL CSS SETTINGS */
+
+::placeholder { color: #666; }
+::selection { background-color: var(--accent); color: #fff; }
+input, textarea { outline: none; }
+input:focus:required:invalid, textarea:focus:required:invalid { border-color: red; }
+input:required:valid, textarea:required:valid { border-color: green; }
+
+p {
+	padding-top: 5em;
+	font-family: Montserrat-regular;
+	font-size: 30px;
+
+}
+
+body {
+	font-family: var(--userfont);
+	font-size: var(--regular-text);
+	line-height: var(--lineheight);
+	color: var(--text);
+	min-width: 320px;
+	position: relative;
+	overflow-x: hidden;
+	
+}
+
+/* USER STYLES 
+
+.image {
+	max-width: 100%;
+	margin-bottom: var(--bs-gutter-x);
+	border-radius: 4px;
+}
+
+.accent {
+	color: var(--accent);
+	font-weight: bold;
+}
+*/
+body, html {
+	height: 100%;
+}
+.showcase__header {
+	top: 30px;
+	font-family: Montserrat-regular;
+	display: flex;
+	justify-content: center;
+	position: relative;
+	z-index: 3;
+	font-weight: 400;
+	font-size: 35px;
+	text-align: center;
+ 	text-transform: uppercase;
+  	font-weight: 400;
+	color: white;
+	animation: neon 10s infinite;
+}
+
+
+
+.header__item-2 {
+	padding-top: 0.3em;
+
+}
+
+.header__logo {
+	width: 13em;
+	
+}
+
+.header__item-1 {
+	background-color: transparent;
+}
+
+.showcase__menu {
+	list-style-type: none;
+	height: 100%;
+	padding-top: 0.5em;
+	
+}
+
+.menu__item {
+	display: inline;
+	padding-right: 13vh;
+}
+
+.menu__link.menu-active {
+	color: rgb(211, 126, 207);
+}
+
+.menu__item a {
+	
+	color: white;
+	text-decoration: none;
+	font-family: Montserrat-regular;
+	font-size: 22px;
+	
+}
+
+.menu__link:hover {
+	opacity: .5;
+	transition: 0.3s;
+}
+
+.showcase {
+	background-color: #333;
+	height: 100%;
+	position: relative;
+	color: #fff;
+	overflow: hidden;
+	
+}
+
+.showcase::before {
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 1;
+	box-shadow: inset 0 0 500 rgb(1, 1, 1);
+
+}
+
+.showcase::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: url(/images/neon-bg-2.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	animation: k-light 12s ease-in-out infinite;
+	
+}
+	
+
+.showcase__video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: .09;
+	
+}
+
+
+
+.showcase__content-wrapper {
+	position: relative;
+	z-index: 2;
+	height: 100%;
+	padding: var(--padding) 0;
+}
+
+.showcase-carousel__item {
+	position: relative;
+	height: calc(100vh - var(--padding)*2);
+	opacity: .4;
+	text-align: center;
+	transform: scale(.5);
+	transition:  opacity 1.0s var(--transition), transform 0.5s var(--transition);
+}
+
+
+.showcase-carousel__item.swiper-slide-active {
+	transform: scale(.98);
+	opacity: 1;
+	
+}
+
+.showcase-carousel__image-wrapper > * {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	perspective: 150px;
+	transform-style: preserve-3d;
+}
+
+.showcase-carousel__image {
+	position:absolute;
+	width: 100%;
+	height: 100%;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	
+}
+
+
+.image__button {
+	width: 65%;
+	position: relative;
+	font-family: Montserrat-regular;
+	top: 68vh;
+	left: 1em;
+	border: 1px solid;
+  	background-color: transparent;
+  	text-transform: uppercase;
+  	font-size: 20px;
+  	padding: 1.5em 3em;
+  	transition: 0.2s;
+}
+
+
+
+.image__button-prp {
+	color: #f038ff;
+}
+
+.image__button-prp:hover {
+	background-color: #ee38ff8d;
+	color: #fff;
+	border: 1px solid #ee38ff8d;
+	box-shadow: 1em 2em 10em 2em #ee38ff8d;
+}
+
+
+
+
+/*
+.showcase-carousel__image-left {
+	perspective-origin: left center;
+	clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+.showcase-carousel__image-left .showcase-carousel__image {
+	animation: k-left-side 2s ease-in-out infinite;
+	animation-direction: alternate;
+}
+
+.showcase-carousel__image-right .showcase-carousel__image {
+	animation: k-right-side 2s ease-in-out infinite;
+	animation-direction: alternate;
+}
+
+
+.showcase-carousel__image-right {
+	perspective-origin: right center;
+	clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+	
+}
+*/
+
+
+.showcase__content-wrapper::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+
+
+.showcase-navigation {
+	overflow: hidden;
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.showcase-navigation > * {
+	
+}
+/*ANIMATIONS*/
+
+
+@keyframes k-light {
+	0% {
+		opacity: .80;
+	}
+	20% {
+		opacity: .82;
+	}
+	
+	50% {
+		opacity: .86;
+	}
+
+	70% {
+		opacity: .89;
+	}
+	
+	100% {
+		opacity: .82;
+	}
+}
+
+@keyframes k-left-side {
+	0% {
+		transform: rotateY(-1deg) scaleX(.92);
+	}
+	100%{
+		transform: rotateY(0deg) scaleX(1);
+	}
+
+}
+
+@keyframes k-right-side {
+	0% {
+		transform: rotateY(0deg) scaleX(1);
+	}
+	100%{
+		transform: rotateY(+1deg) scaleX(.92);
+	}
+
+}
+
+@keyframes neon {
+	0% {
+	  text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+	  0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light),
+	  0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
+	}
+	50% {
+	  text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+	  0 0 5px var(--shadow-color-light), 0 0 15px var(--shadow-color-light), 0 0 25px var(--shadow-color-light),
+	  0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 60px var(--shadow-color), 0 0 80px var(--shadow-color), 0 0 110px var(--shadow-color), 0 0 210px var(--shadow-color);
+	}
+	100% {
+	  text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+	  0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light),
+	  0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
+	}
+  }
